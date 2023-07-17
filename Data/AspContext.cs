@@ -8,6 +8,10 @@ public class AspContext:DbContext
     public DbSet<Student> Students {get; set;}
 
     public DbSet<Course> Courses {get;set;}
+
+    public DbSet<Country> Countries{get;set;}
+
+    public DbSet<CapitalCity> CapitalCities{get;set;}
     public AspContext(DbContextOptions<AspContext> dbContextOptions):base(dbContextOptions) {}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

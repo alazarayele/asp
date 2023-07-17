@@ -27,4 +27,18 @@ public class CourseController : ControllerBase
         _aspContext.SaveChanges();
         return "OK";
     }
+      [HttpGet("{id}")]
+    public Course GetCourses(int id)
+    {
+        return _aspContext.Courses.SingleOrDefault(cou=>cou.Id==id);
+    }
+
+    [HttpDelete("{id}")]
+    public string DeleteCourse(int id)
+    {
+        Course course=GetCourses(id);
+        _aspContext.Courses.Remove(course);
+        _aspContext.SaveChanges();
+        return "Deleted";
+    }
 }
