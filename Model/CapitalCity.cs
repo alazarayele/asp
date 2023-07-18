@@ -1,9 +1,9 @@
 namespace asp.Model;
 
 
-public class CapitalCity
+public class CapitalCity : BaseModel
 {
-    public int Id{get;set;}
+    
     public string CountryName{get;set;}
     public int NumberOfPopulation{get;set;}
 

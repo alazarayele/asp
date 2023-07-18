@@ -1,9 +1,8 @@
 namespace asp.Model;
 
-public class Country
+public class Country : BaseModel
 {
 
-    public int CountryId {get;set;}
     public string Name {get;set;}
     public int Population {get;set;}
     public int continent {get;set;}

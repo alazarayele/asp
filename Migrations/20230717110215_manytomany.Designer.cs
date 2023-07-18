@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using asp.Data;
 
@@ -10,9 +11,11 @@ using asp.Data;
 namespace asp.Migrations
 {
     [DbContext(typeof(AspContext))]
-    partial class AspContextModelSnapshot : ModelSnapshot
+    [Migration("20230717110215_manytomany")]
+    partial class manytomany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,12 +34,6 @@ namespace asp.Migrations
                     b.Property<string>("CountryName")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("CretaedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<int>("NumberOfPopulation")
                         .HasColumnType("int");
 
@@ -50,15 +47,9 @@ namespace asp.Migrations
 
             modelBuilder.Entity("asp.Model.Country", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CountryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("CretaedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
@@ -69,7 +60,7 @@ namespace asp.Migrations
                     b.Property<int>("continent")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("CountryId");
 
                     b.ToTable("Countries");
                 });
@@ -83,14 +74,8 @@ namespace asp.Migrations
                     b.Property<int>("CreditHour")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CretaedDate")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
@@ -107,12 +92,9 @@ namespace asp.Migrations
 
             modelBuilder.Entity("asp.Model.Employee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EmployeeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("CretaedDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("longtext");
@@ -120,13 +102,10 @@ namespace asp.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<long>("Salary")
                         .HasColumnType("bigint");
 
-                    b.HasKey("Id");
+                    b.HasKey("EmployeeId");
 
                     b.ToTable("Employees");
                 });
@@ -148,15 +127,9 @@ namespace asp.Migrations
 
             modelBuilder.Entity("asp.Model.Project", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProjectId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("CretaedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
@@ -164,7 +137,7 @@ namespace asp.Migrations
                     b.Property<string>("Station")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProjectId");
 
                     b.ToTable("Projects");
                 });
@@ -175,14 +148,8 @@ namespace asp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CretaedDate")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<string>("Gender")
                         .HasColumnType("longtext");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");

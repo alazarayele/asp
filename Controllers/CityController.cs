@@ -42,4 +42,22 @@ public class CityCountroller : ControllerBase
         _aspContext.SaveChanges();
         return "Successfully Deleted";
     }
+
+    [HttpPut("{id}")]
+     public string UpdateCity(CapitalCity capitalCity,int id)
+     {
+       CapitalCity capitalCity1=GetCapitalCity(id);
+        if(capitalCity1 != null)
+             {
+                 capitalCity1.CountryName = capitalCity.CountryName;
+                 capitalCity1.NumberOfPopulation = capitalCity.NumberOfPopulation;
+                 capitalCity1.CountryId = capitalCity.CountryId;
+                  _aspContext.SaveChanges();
+                   return "Updated";
+          }
+          else
+          return "notUpdate";
+       
+       
+    }
 }

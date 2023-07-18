@@ -1,6 +1,7 @@
 using asp.Data;
 using asp.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace asp.Controllers;
 
@@ -19,7 +20,7 @@ public class CountryControllers : ControllerBase
     [HttpGet]
     public List<Country> GetCountries()
     {
-        return _aspContext.Countries.ToList();
+        return _aspContext.Countries.Include(y=>y.CapitalCity).ToList();
     }
 
     [HttpPost]
@@ -34,7 +35,7 @@ public class CountryControllers : ControllerBase
 
     public Country GetCountry(int id)
     {
-        return _aspContext.Countries.SingleOrDefault(country=>country.CountryId==id);
+        return _aspContext.Countries.SingleOrDefault(country=>country.Id==id);
     }
 
     [HttpDelete("{id}")]

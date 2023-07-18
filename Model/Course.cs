@@ -1,9 +1,9 @@
 namespace asp.Model;
 
 
-public class Course
+public class Course : BaseModel
 {
-    public int Id{get;set;}
+    
     public string Name{get;set;}
 
     public string Description{get;set;}
